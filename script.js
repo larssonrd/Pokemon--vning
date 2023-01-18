@@ -60,13 +60,11 @@ function generatePokemonCards() {
   availablePokemonCards.innerHTML = availablePokemons.join("");
   chosenPokemonCards.innerHTML = chosenPokemons.join("");
 
-  pokemons.forEach((pokemon) => {
-    document.getElementById(pokemon.name).style.backgroundColor = pokemon.color;
-  });
-  chosenPokemonsArr.forEach((pokemon) => {
-    document.getElementById(pokemon.name).style.backgroundColor = pokemon.color;
-  });
+  renderColor(pokemons);
+  renderColor(chosenPokemonsArr);
 }
+
+generatePokemonCards();
 
 //Räkna ut CP
 function calculateCP() {
@@ -77,4 +75,8 @@ function calculateCP() {
   totalCpEl.textContent = totalCp;
 }
 
-generatePokemonCards();
+function renderColor(pokemonArray) {
+  pokemonArray.forEach((pokemon) => {
+    document.getElementById(pokemon.name).style.backgroundColor = pokemon.color;
+  });
+}
