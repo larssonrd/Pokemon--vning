@@ -4,11 +4,11 @@ const availablePokemonCards = document.getElementById(
   "available-pokemons__cards"
 );
 const chosenPokemonCards = document.getElementById("chosen-pokemons__cards");
-const totalCpEl = document.getElementById("total-cp");
+const totalCPEl = document.getElementById("total-cp");
 
 let chosenPokemonsArr = [];
 
-//Event listeners
+//////// Event listeners ////////
 
 availablePokemonCards.addEventListener("click", (e) => {
   if (availablePokemonCards.contains(e.target)) {
@@ -32,7 +32,7 @@ chosenPokemonCards.addEventListener("click", (e) => {
   }
 });
 
-//Funktioner
+//////// Funktioner ////////
 
 function generatePokemonCards() {
   let availablePokemons = pokemons.map((pokemon, index) => {
@@ -68,13 +68,14 @@ generatePokemonCards();
 
 //Räkna ut CP
 function calculateCP() {
-  let totalCp = 0;
+  let totalCP = 0;
   chosenPokemonsArr.forEach((pokemon) => {
-    totalCp += pokemon.cp;
+    totalCP += pokemon.cp;
   });
-  totalCpEl.textContent = totalCp;
+  totalCPEl.textContent = totalCP;
 }
 
+//Rendera rätt färg för varje pokemon
 function renderColor(pokemonArray) {
   pokemonArray.forEach((pokemon) => {
     document.getElementById(pokemon.name).style.backgroundColor = pokemon.color;
