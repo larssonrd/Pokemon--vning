@@ -13,22 +13,26 @@ let chosenPokemonsArr = [];
 availablePokemonCards.addEventListener("click", (e) => {
   if (availablePokemonCards.contains(e.target)) {
     let parentEl = e.target.closest("[data-index]");
-    let arrIndex = parentEl.dataset.index;
-    chosenPokemonsArr.push(pokemons[arrIndex]);
-    pokemons.splice(arrIndex, 1);
-    generatePokemonCards();
-    calculateCP();
+    if (parentEl) {
+      let arrIndex = parentEl.dataset.index;
+      chosenPokemonsArr.push(pokemons[arrIndex]);
+      pokemons.splice(arrIndex, 1);
+      generatePokemonCards();
+      calculateCP();
+    }
   }
 });
 
 chosenPokemonCards.addEventListener("click", (e) => {
   if (chosenPokemonCards.contains(e.target)) {
     let parentEl = e.target.closest("[data-index]");
-    let arrIndex = parentEl.dataset.index;
-    pokemons.push(chosenPokemonsArr[arrIndex]);
-    chosenPokemonsArr.splice(arrIndex, 1);
-    generatePokemonCards();
-    calculateCP();
+    if (parentEl) {
+      let arrIndex = parentEl.dataset.index;
+      pokemons.push(chosenPokemonsArr[arrIndex]);
+      chosenPokemonsArr.splice(arrIndex, 1);
+      generatePokemonCards();
+      calculateCP();
+    }
   }
 });
 
